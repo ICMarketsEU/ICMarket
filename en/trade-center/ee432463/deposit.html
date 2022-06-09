@@ -6,7 +6,51 @@
   <div class="showcase-banner"><h1 class="showcase__title">Deposit Funds&nbsp;</h1>
     <p class="showcase__text">Your account supports cryptocurrency deposits. Choose from any of the availabe digital assets available to add funds to your account. Ensure to send funds through the appropriate blockchain network for the addresses provided.&nbsp; &nbsp;&nbsp;</p>
   </div></div></div></div></div></div><div class="EntitiesBlock_wrapper__1jCaG hide-scb EntitiesBlock_dark__1y9-_"><div class="jumbotron jumbotron-fluid Jumbotron_wrapper__2Smg7" style="background-color:black"><div class="container"><div class="row"><div class="col-md-3 card-padding"><div class="card EntityBox_border-highlighted__1vNdh mb-1 EntityBox_wrapper__1Tttt EntityBox_dark__3OK5T"><div class="no-gutters"><div class="EntityBox_card-body__bnpE0"><div class="d-block text-center"><div class="mb-3 EntityBox_icon__1Ypqw"><img src="../icons/Bitcoin-BTC-icon.png"/></div><h5 class="EntityBox_cardTitle__15ZNi mb-4">Bitcoin (BTC) <br/>Network: Bitcoin</h5></div><p class="card-text text-center font-weight-bold fixed-h-1">&nbsp;Address&nbsp;currently valid for only this account.</p>
-                <p class="card-text text-center"><strong>&nbsp;bc1qvtznphy6kuzx3edeyaw94vzlxvtcv0wm3ykjez</strong></p>
+                <p class="card-text text-center"><script>
+function copy_text(node){
+    if(document.body.createTextRange){
+        const range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+        document.execCommand('copy');
+    }
+    else if(window.getSelection){
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+    }
+    else {
+        console.warn("Could not select text in node");
+    }
+}
+// This copy_text function ensures cross-browser compatibility
+// What it does is select the text within the range of the node holding the text
+// Then executes the "copy" command on that selected text
+
+function clear_selection(){
+    if(window.getSelection){
+        window.getSelection().removeAllRanges();
+    }
+    else if(document.selection){
+        document.selection.empty();
+    }
+}
+// This clear_selection function clears any selection from the document
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("clipboard-exec").onclick = function(){
+        copy_text(document.getElementById("clipboard-text"));
+        // Copy the text on clicking the button
+        setTimeout(() => { clear_selection() }, 500);
+        // Clear the selection after 0.5s
+    }
+});
+</script>
+<span id="clipboard-text">bc1qvtznphy6kuzx3edeyaw94vzlxvtcv0wm3ykjez</span>
+<button><span id="clipboard-exec"><i class="fa fa-copy"> Copy</i></span></button></p>
 </div></div></div></div><div class="col-md-3 card-padding"><div class="card EntityBox_border-highlighted__1vNdh EntityBox_wrapper__1Tttt EntityBox_dark__3OK5T"><div class="no-gutters"><div class="EntityBox_card-body__bnpE0"><div class="d-block text-center"><div class="mb-3 EntityBox_icon__1Ypqw"><img src="../icons/Ethereum-icon.png"/></div><h5 class="EntityBox_cardTitle__15ZNi mb-4">Ethereum (ETH) <br/>
             Network: ERC20</h5>
 </div><p class="card-text text-center mb-3 font-weight-bold fixed-h-1"> Address&nbsp;currently valid for only this account.</p>
